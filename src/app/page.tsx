@@ -72,8 +72,8 @@ const GameServer: FC<GameServerProps> = ({server}) => {
 const GameServerList: FC<GameServerListProps> = ({data, title}) => {
 
   return (
-    <main>
-      <h1 className="text-2xl font-bold">{title}</h1>
+    <main className="flex flex-col row-start-2 gap-10 bg-sky-950 p-10 rounded-lg text-sky-200">
+      <h1 className="text-2xl font-bold text-sky-200">{title}</h1>
       {data.map(item => {
         return (
           <GameServer server={item} />
