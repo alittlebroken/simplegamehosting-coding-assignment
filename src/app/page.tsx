@@ -59,10 +59,9 @@ const GameServer: FC<GameServerProps> = ({server}) => {
   }
 
   return (
-    <section className="flex flex-col gap-2 bg-white rounded-md p-2 shadow-lg border-2 border-white dark:bg-sky-700 hover:border-2 hover:border-dash hover:border-slate-400">
+    <section className="flex flex-col gap-2 bg-white rounded-md p-2 shadow-lg border-2 border-white hover:border-2 hover:border-dash hover:border-slate-400 dark:bg-slate-900 dark:text-slate-300 dark:border-slate-600">
 
-        <h2 className="text-3xl font-bold text-center text-purple-800 sm:text-2xl md:text-3xl">{server.name}</h2>
-
+        <h2 className="text-3xl font-bold text-center text-purple-800 sm:text-2xl md:text-3xl dark:text-purple-300">{server.name}</h2>
 
       <div id="cardBody" className="flex flex-col gap-2">
         
@@ -83,7 +82,7 @@ const GameServer: FC<GameServerProps> = ({server}) => {
                 <span className="text-sm content-center">{serverOnline}</span>
             </div>
 
-            <button onClick={handleServerStatus} className="rounded-lg p-2 bg-slate-300 text-slate-600 text-bold shadow-md hover:bg-slate-600 hover:text-slate-300 hover:shadow-lg">
+            <button onClick={handleServerStatus} className="rounded-lg p-2 bg-slate-300 text-slate-600 text-bold shadow-md hover:bg-slate-600 hover:text-slate-300 hover:shadow-lg dark:bg-slate-600 dark:text-slate-300 dark:hover:bg-slate-400 dark:hover:text-slate-600">
               {serverOnline === "online" ? "Stop Server" : "Start Server"}
             </button>
           
@@ -91,14 +90,14 @@ const GameServer: FC<GameServerProps> = ({server}) => {
         </div>
         
         <div>
-          <span className="text-bold text-slate-600">Mods:</span>
-          <ul className="bg-slate-100 rounded-md p-2 text-sm shadow-inner h-28 overflow-y-auto">
+          <span className="text-bold text-slate-600 dark:text-slate-300">Mods:</span>
+          <ul className="bg-slate-100 rounded-md p-2 text-sm shadow-inner h-28 overflow-y-auto dark:bg-slate-700">
             {server.mods.map(mod => (<li>{mod}</li>))}
           </ul>
         </div>
       </div>
 
-      <div id="cardFooter" className="flex gap-5 justify-between border-t-2 pt-2 text-sm">
+      <div id="cardFooter" className="flex gap-5 justify-between border-t-2 pt-2 text-sm dark:border-slate-800">
         <div>{server.game} v{server.version}</div>
         <div>{server.type}</div>
         <div><CiGlobe className="text-xl" title={`Region: ${server.region}`} /></div>
@@ -114,8 +113,8 @@ const GameServerList: FC<GameServerListProps> = ({data, title}) => {
 
   return (
     <>
-    <h1 className="text-2xl font-bold text-purple-800 sm:text-4xl dark:text-sky-200">{title}</h1>
-      <main className="grid grid-cols-1 row-start-2 gap-5 bg-slate-300 dark:bg-sky-950 p-3 rounded-lg text-slate-500 dark:text-sky-200 sm:grid-cols-2 md:grid-cols-3">
+    <h1 className="text-3xl font-bold text-purple-800 sm:text-5xl dark:text-purple-400">{title}</h1>
+      <main className="grid grid-cols-1 row-start-2 gap-5 bg-slate-300 p-3 rounded-lg text-slate-500 sm:grid-cols-2 md:grid-cols-3 dark:text-sky-200 dark:bg-slate-800">
         {data.map(item => {
           return (
             <GameServer server={item} key={item.id} />
@@ -146,7 +145,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-10 font-[family-name:var(--font-geist-sans)]">
+    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-10 font-[family-name:var(--font-geist-sans)] dark:bg-slate-900">
       {serverData ? (<GameServerList title="Minecraft Server List" data={serverData} />) : "Loading..."}
     </div>
   );
