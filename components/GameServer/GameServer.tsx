@@ -1,5 +1,5 @@
 /* Component card for displaying all relevant data about a server */
-import { useState, FC } from "react";
+import React, { useState, FC } from "react";
 import { CiGlobe } from "react-icons/ci";
 import { HiStatusOnline, HiStatusOffline } from "react-icons/hi";
 
@@ -11,7 +11,7 @@ const GameServer: FC<GameServerProps> = ({server}) => {
     const [serverOnline, setServerOnline] = useState(server.status || "offline");
   
     /* Handler for toggling the server state on and offline */
-    const handleServerStatus = (e) => {
+    const handleServerStatus = (e: React.MouseEvent<HTMLButtonElement>) => {
       /* Stop the default behaviour of the button */
       e.preventDefault()
   
