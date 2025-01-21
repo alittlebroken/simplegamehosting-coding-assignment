@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState, FC } from "react";
-import GameServerList from "../../components/GameServerList/GameServerList";
+import GameServerList from "../components/GameServerList/GameServerList";
 
 /*
   Welcome to the simplegamehosting coding assignment!
