@@ -25,8 +25,6 @@ const GameServer: FC<GameServerProps> = ({server}) => {
           <h2 className="text-3xl font-bold text-center text-purple-800 sm:text-2xl md:text-3xl dark:text-purple-300">{server.name}</h2>
   
         <div id="cardBody" className="flex flex-col gap-2">
-          
-          <div>
   
             <div className="flex flex-col gap-3 p-1">
               <div className="w-100 text-center text-sm pb-3">
@@ -37,9 +35,9 @@ const GameServer: FC<GameServerProps> = ({server}) => {
             <div className="flex justify-between text-sm content-center">
               
               <div className="flex gap-2 content-center justify-center ">
-                  <span className="w-12 p-0 m-0 flex content-center justify-center">
-                    {serverOnline === "online" ? (<HiStatusOnline className="text-2xl text-green-600 my-auto" title={`Status: ${serverOnline}`} />) : (<HiStatusOffline className="text-2xl text-red-600 my-auto" title={`Status: ${serverOnline}`}/>)}
-                  </span>
+                  <div className="w-12 p-0 m-0 flex content-center justify-center">
+                    {serverOnline === "online" ? (<HiStatusOnline className="text-2xl text-green-600 my-auto" title={`Status: ${serverOnline}`} />) : (<HiStatusOffline className="text-2xl text-red-600 my-auto" title={`Status: ${serverOnline}`} />)}
+                  </div>
                   <span className="text-sm content-center">{serverOnline}</span>
               </div>
   
@@ -48,12 +46,11 @@ const GameServer: FC<GameServerProps> = ({server}) => {
               </button>
             
             </div>
-          </div>
           
           <div>
             <span className="text-bold text-slate-600 dark:text-slate-300">Mods:</span>
             <ul className="bg-slate-100 rounded-md p-2 text-sm shadow-inner h-28 overflow-y-auto dark:bg-slate-700">
-              {server.mods.map(mod => (<li>{mod}</li>))}
+              {server.mods.map(mod => (<li key={mod}>{mod}</li>))}
             </ul>
           </div>
         </div>
