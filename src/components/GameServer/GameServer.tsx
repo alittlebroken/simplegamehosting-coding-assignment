@@ -51,8 +51,8 @@ const GameServer: FC<GameServerProps> = ({server}) => {
           </div>
     
           <div id="cardFooter" className="flex gap-2 justify-between border-t-2 pt-2 text-xs dark:border-slate-800">
-            <div>{server.game} v{server.version}</div>
-            <div>{server.type}</div>
+            <div className="content-center">{server.game} v{server.version}</div>
+            <div className="content-center">{server.type}</div>
             <div className="flex p-0 gap-1 justify-center items-center group">
               <CiGlobe className="text-xl group-hover:animate-spin group-hover:text-purple-800 group-hover:dark:text-purple-300" title={`Region: ${server.region}`} />
               <span className="text-xs group-hover:text-purple-800 group-hover:dark:text-purple-300">{server.region}</span>
