@@ -23,7 +23,7 @@ const GameServer: FC<GameServerProps> = ({server}) => {
     }
   
     return (
-      <section className="flex flex-col gap-2 bg-white rounded-md p-2 shadow-lg border-2 border-white hover:border-2 hover:border-dash hover:border-slate-400 dark:bg-slate-900 dark:text-slate-300 dark:border-slate-600">
+      <section className="flex flex-col gap-2 bg-white rounded-md p-2 shadow-lg border-2 border-white hover:border-2 hover:border-dash hover:border-slate-400 dark:bg-slate-900 dark:text-slate-300 dark:border-slate-900 dark:hover:border-slate-600">
   
         <h2 className="text-3xl font-bold text-center text-purple-800 sm:text-2xl md:text-3xl dark:text-purple-300">{server.name}</h2>
   
