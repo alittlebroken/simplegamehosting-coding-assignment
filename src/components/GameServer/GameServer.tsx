@@ -7,20 +7,32 @@ import { GameServerProps } from './GameServer.type';
 import GameServerMods from "../GameServerMods/GameServerMods";
 import GameServerStatus from "../GameServerStatus/GameServerStatus";
 import GameServerPlayers from "../GameServerPlayers/GameServerPlayers";
+import { FaBullseye } from "react-icons/fa";
 
 const GameServer: FC<GameServerProps> = ({server}) => {
 
     /* State for controlling if the server is online or offline */
     const [serverOnline, setServerOnline] = useState(server.status || "offline");
+    const [mockStatusUpdate, setMockStatusUpdate] = useState(false)
   
     /* Handler for toggling the server state on and offline */
-    const handleServerStatus = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const handleServerStatus = async (e: React.MouseEvent<HTMLButtonElement>) => {
       /* Stop the default behaviour of the button */
       e.preventDefault()
 
+      /* For demo purposes simulate waiting for a request to stop a server when
+         an end use has clicked on the stop/start server button. */
+      const mockDelay = (delay: number) => {
+        return new Promise( res => setTimeout(res, delay));
+      }
+
+      /* Now wait for the server to stop/start */
+      setMockStatusUpdate(true);
+      await mockDelay(5000);
+
       /* Update the server status */
       setServerOnline(serverOnline === "offline" ? "online" : "offline");
-
+      setMockStatusUpdate(false);
     }
   
     return (
@@ -32,7 +44,7 @@ const GameServer: FC<GameServerProps> = ({server}) => {
     
               <GameServerPlayers players={server.players} />
     
-              <GameServerStatus status={serverOnline}  handleClick={handleServerStatus} />  
+              <GameServerStatus status={serverOnline}  handleClick={handleServerStatus} updating={mockStatusUpdate} />  
             
               <GameServerMods modList={server.mods} />
             
