@@ -9,7 +9,7 @@ import DarkLightToggler from "../DarkLightToggler/DarkLightToggler";
 const GameServerList: FC<GameServerListProps> = ({data, title}) => {
 
   return (
-    <div className="grid grid-cols-1 gap-10 row-start-2">
+    <div className="grid grid-cols-1 gap-5 row-start-2">
       <DarkLightToggler />
       <h1 className="text-3xl font-bold text-purple-800 sm:text-5xl dark:text-purple-400">
         {title}
