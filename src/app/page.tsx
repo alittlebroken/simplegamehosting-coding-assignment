@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState, FC } from "react";
+import { useEffect, useState } from "react";
 import GameServerList from "../components/GameServerList/GameServerList";
 
 /*

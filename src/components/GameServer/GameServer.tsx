@@ -7,7 +7,6 @@ import { GameServerProps } from './GameServer.type';
 import GameServerMods from "../GameServerMods/GameServerMods";
 import GameServerStatus from "../GameServerStatus/GameServerStatus";
 import GameServerPlayers from "../GameServerPlayers/GameServerPlayers";
-import { FaBullseye } from "react-icons/fa";
 
 const GameServer: FC<GameServerProps> = ({server}) => {
 
